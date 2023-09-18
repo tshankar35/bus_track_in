@@ -5,4 +5,4 @@ plotly==5.11.0
 PyAutoGUI==0.9.53
 requests==2.25.1
 st_btn_select==0.1.2
-streamlit==1.15.1
+streamlit==1.14
