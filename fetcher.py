@@ -31,6 +31,7 @@ def fetch_latest():
 					d.append(df_new['long'][i])
 					d.append(df_new['speed'][i])
 					d.append(latencylist[i])
+					d.append(f"http://maps.google.com/maps?q=loc:{df_new['long'][i]},{df_new['lat'][i]}")
 					with open('errors-'+str(date.today())+'.csv','a') as f:
 						write = writer(f)
 						write.writerow(d)
@@ -39,7 +40,7 @@ def fetch_latest():
 	else:
 		with open('errors-'+str(date.today())+'.csv','w') as f:
 			write = writer(f)
-			write.writerow(['timestamp','latitude','longitude','speed','latency'])
+			write.writerow(['timestamp','latitude','longitude','speed','latency','View_Loc'])
 			f.close()
 			pd.to_datetime(df_new['date'])
 			d = []
@@ -52,6 +53,7 @@ def fetch_latest():
 					d.append(df_new['long'][i])
 					d.append(df_new['speed'][i])
 					d.append(latencylist[i])
+					d.append(f"http://maps.google.com/maps?q=loc:{df_new['long'][i]},{df_new['lat'][i]}")
 					with open('errors-'+str(date.today())+'.csv','a') as f:
 						write = writer(f)
 						write.writerow(d)
@@ -68,6 +70,7 @@ def fetch_latest():
 				d.append(df_new['long'][i])
 				d.append(df_new['speed'][i])
 				d.append(latencylist[i])
+				d.append(f"http://maps.google.com/maps?q=loc:{df_new['long'][i]},{df_new['lat'][i]}")
 				with open("log-"+str(date.today())+'.csv','a') as f:
 					write = writer(f)
 					write.writerow(d)
@@ -77,7 +80,7 @@ def fetch_latest():
 		with open("log-"+str(date.today())+".csv",'w') as f:
 			d=[]
 			write = writer(f)
-			write.writerow(['timestamp','latitude','longitude','speed','latency'])
+			write.writerow(['timestamp','latitude','longitude','speed','latency','View_Loc'])
 			f.close()
 			for i in range(len(df_new.index)):
 					d.append(df_new['date'][i])
@@ -85,6 +88,7 @@ def fetch_latest():
 					d.append(df_new['long'][i])
 					d.append(df_new['speed'][i])
 					d.append(latencylist[i])
+					d.append(f"http://maps.google.com/maps?q=loc:{df_new['long'][i]},{df_new['lat'][i]}")
 					with open("log-"+str(date.today())+".csv",'a') as f:
 						write = writer(f)
 						write.writerow(d)
